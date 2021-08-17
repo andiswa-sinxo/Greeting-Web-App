@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting App</title>
+</head>
+
+<body>
+    <div>
+        <h1>GREETING APP</h1>
+    </div>
+    <div>
+        <p>Please enter your name, select a language of your prefrence and click the greet button</p>
+    </div>
+
+    <div>
+        <form action="/greet" method="POST">
+            <label for="">Name:</label>
+            <input type="text" name="username" placeholder="please enter your name">
+    </div>
+
+    <div>
+        <label for="counter">Counter</label>
+        <span class="counter">0</span>
+    </div>
+
+    <div>
+        <input type="radio" name="langauge" value="French">
+        <label for="french">French</label>
+        <input type="radio" name="language" value="IsiXhosa">
+        <label for="xhosa">IsiXhosa</label>
+        <input type="radio" name="language" value="Spanish">
+        <label for="spanish">Spanish</label>
+    </div>
+
+    <div>
+        <button class="btn" type="submit">Greet Me</button>
+
+        </form>
+
+        <button class="btn">Reset</button>
+    </div>
+
+    <div>{{mesg}}</div>
+</body>
+
+</html>
