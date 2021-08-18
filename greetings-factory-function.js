@@ -8,19 +8,23 @@ module.exports = function Greetings() {
 
         var string = names.toLowerCase();
         var name = string.charAt(0).toUpperCase() + string.slice(1);
+        // if (alpha.test(name)=== true) {
+           
+            NameStoring(name)
 
-       
-        if (language === "French") {
-            return 'Bonjour, ' + name
-        }
-        if (language === "IsiXhosa") {
-            return 'Molo, ' + name
-        }
-        if (language === "Spanish") {
-            return 'Hola, ' + name
+            if (language === "French") {
+                return 'Bonjour, ' + name
+            }
+            if (language === "IsiXhosa") {
+                return 'Molo, ' + name
+            }
+            if (language === "Spanish") {
+                return 'Hola, ' + name
 
-        } 
-        
+            }
+        // }else{
+        //     return 'invalid input'
+        // }
     }
 
     function emptyText(name) {
@@ -30,8 +34,8 @@ module.exports = function Greetings() {
     }
 
     function enterNumber(name) {
-        
-            return "Please enter a valid name.";
+
+        return "Please enter a valid name.";
     }
 
     function NameStoring(names) {
@@ -40,15 +44,16 @@ module.exports = function Greetings() {
         var name = string.charAt(0).toUpperCase() + string.slice(1);
 
 
-        if (!NameGreet.includes(name)) {
-            NameGreet.push(name)
-            return
+        if (storedName[name] === undefined) {
+            storedName[name] = 0
+        } else {
+            storedName[name]++
         }
-
+    //     console.log(storedName)
     }
 
     function lengthName() {
-        return NameGreet.length
+        return Object.keys(storedName).length
     }
 
     function getStoredName() {

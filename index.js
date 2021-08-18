@@ -21,27 +21,18 @@ app.use(bodyParser.json())
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.render('index')
+    var count = greetingsApp.lengthName()
+    res.render('index', {count})
 });
 
 
 app.post('/greet', function (req, res) {
-    var langauge = req.body.langauge
-    console.log(req.body.username)
-    var mesg;
-
-    if (langauge === 'IsiXhosa') {
-        mesg = 'Molo, ' + req.body.username
-    }
-    else if (langauge === 'Spanish') {
-        mesg = 'Hola, ' + req.body.username
-    }
-    else if (langauge === 'French') {
-        mesg = 'Bonjour, ' + req.body.username
-    }
-    console.log(mesg)
-
-    res.render('index', {mesg})
+    var language = req.body.language
+    var name = req.body.username
+    
+    var mesg = greetingsApp.nameLanguage(name, language)
+    var count = greetingsApp.lengthName()
+    res.render('index', { mesg, count })
 
 });
 

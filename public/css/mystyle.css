@@ -1,0 +1,41 @@
+body{
+    background: url(./swatch_tuscany-brown-.png);
+}
+
+h1{
+    text-align: center;
+    font-style: italic;
+    font-size: 45px;
+    text-decoration: underline;
+}
+p{
+    text-align: center;
+    font-size: 25px
+}
+
+ .inputText{
+     margin-left: 700px ;
+ }
+
+.inputName{
+ padding: 15px 90px;
+    margin: 50px;
+    background-color: transparent;
+    ;
+}
+
+.counting{
+    padding-top: 50px;
+}
+
+.counting label, span{
+    /* text-align: center; */
+    margin-left: 70px;
+    padding-top: 50px;
+    font-size: 40px;
+}
+
+.content{
+    display: flex;
+    margin: auto;
+}
