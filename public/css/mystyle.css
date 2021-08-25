@@ -10,32 +10,86 @@ h1{
 }
 p{
     text-align: center;
-    font-size: 25px
+    font-size: 25px;
+    text-decoration: underline;
 }
-
- .inputText{
-     margin-left: 700px ;
- }
-
+.container{
+    background-color:linen;
+    width: 800px;
+   text-align: center;
+   padding-left: 100px;
+   padding-right: 100px;
+   margin-left: 400px;
+}
 .inputName{
- padding: 15px 90px;
+    padding: 15px 90px;
     margin: 50px;
     background-color: transparent;
+}
+
+.inputText label{
+    font-size: 40px;
+}
+
+.inputText input{
+    font-size: 20px;
+}
+
+.langauge{
+    padding-top: 40px;
+}
+
+.langauge label{
+    margin: 20px;
+    font-size: 30px;
+    position: sticky;
+    cursor: pointer;
+}
+input[type=radio]:checked ~ .check {
+    border: 5px solid coral
     ;
-}
-
-.counting{
-    padding-top: 50px;
-}
-
+  }
+  
+  input[type=radio]:checked ~ .check::before{
+    background:coral;
+  }
+  
+  input[type=radio]:checked ~ label{
+    color: coral;
+  }
+  
+/* .align {
+    display: flex;
+} */
 .counting label, span{
-    /* text-align: center; */
     margin-left: 70px;
     padding-top: 50px;
     font-size: 40px;
 }
+  
+/* .langauge input{
+    padding-left: ;
+} */
 
-.content{
-    display: flex;
-    margin: auto;
+.button{
+    padding: 70px;
+}
+
+.btn{
+    margin: 50px;
+    height: 40px;
+    width: 30%;
+    background-color: transparent;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: coral;
+    color: black;
+    box-shadow:0 0 5px floralwhite, 0 0 10px floralwhite, 0 0 15px floralwhite;
+    font-size: 20px;
+}
+
+.display{
+    font-size: 40px;
+    font-style: italic;
 }

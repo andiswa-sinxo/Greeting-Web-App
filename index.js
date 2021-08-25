@@ -36,13 +36,18 @@ app.post('/greet', function (req, res) {
 
 });
 
-app.post('/action', function (req, res) {
-});
+app.get('/greeting', function (req, res) {
+
+//     // var name = greetingsApp.NameStoring(names)
+
+//     // res.render('greetings', {name})
+// });
+})
 
 app.get('/actions', function (req, res) {
 });
 
-app.get('/actions/:type', function (req, res) {
+app.get('/counter/:username', function (req, res) {
 });
 
 let PORT = process.env.PORT || 3011;
