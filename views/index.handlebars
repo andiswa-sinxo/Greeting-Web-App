@@ -19,17 +19,24 @@
             <p>Please enter a name, select a language of your prefrence and click the greet button.</p>
         </div>
         <div class="align">
-        <div class="inputText">
-            <form action="/greet" method="POST">
-                <label for="">Name:</label>
-                <input type="text" class="inputName" name="username" placeholder="please enter your name">
-        </div>
+            <div class="inputText">
 
-        <div class="counting">
-            <label for="counter">Counter:</label>
-            <span class="counter">{{count}}</span>
+                {{#if messages.error}}
+                <div class="entry">
+                    <h3> {{messages.error}}</h3>
+                </div>
+                {{/if}}
+
+                <form action="/greet" method="POST">
+                    <label for="">Name:</label>
+                    <input type="text" class="inputName" name="username" placeholder="please enter your name here">
+            </div>
+
+            <div class="counting">
+                <label for="counter">Counter:</label>
+                <span class="counter">{{count}}</span>
+            </div>
         </div>
-</div>
         <div class="langauge">
             <input type="radio" name="language" value="French">
             <label for="french">French</label>
@@ -46,7 +53,7 @@
 
             <button class="btn">Reset</button>
         </div>
-
+        <a href="/greeted"><button type="submit">GREETED NAMES</button></a>
         <div class="display">{{mesg}}</div>
     </div>
 </body>

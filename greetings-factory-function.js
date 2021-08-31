@@ -11,7 +11,12 @@ module.exports = function Greetings() {
         // if (alpha.test(name)=== true) {
            
             NameStoring(name)
-
+            if(!name || !language){
+                return null
+            }
+             if(name == null || name == Number(name)){
+                return null
+            }
             if (language === "French") {
                 return 'Bonjour, ' + name
             }
@@ -57,7 +62,8 @@ module.exports = function Greetings() {
     }
 
     function getStoredName() {
-        return NameGreet
+        console.log(storedName)
+        return storedName
     }
 
     return {

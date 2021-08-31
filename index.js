@@ -1,3 +1,5 @@
+const flash = require('express-flash');
+const session = require('express-session');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -12,6 +14,13 @@ const handlebarSetup = exphbs({
     layoutsDir: './views/layouts'
 });
 
+app.use(session({
+    secret: "<add a secret string here>",
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(flash());
 app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
@@ -22,27 +31,42 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     var count = greetingsApp.lengthName()
-    res.render('index', {count})
+    res.render('index', { count })
 });
 
 
 app.post('/greet', function (req, res) {
+
     var language = req.body.language
     var name = req.body.username
-    
-    var mesg = greetingsApp.nameLanguage(name, language)
-    var count = greetingsApp.lengthName()
+    console.log((/^([A-Za-z])+$/g).test(name) === false);
+    console.log(name);
+    if (name && language) {
+        if ((/^([A-Za-z])+$/g).test(name) === false) {
+            req.flash('error', 'Please enter a valid name')
+        } else {
+            var mesg = greetingsApp.nameLanguage(name, language)
+            var count = greetingsApp.lengthName()
+            greetingsApp.getStoredName()
+        }
+    }
+    else if (!name && language) {
+        req.flash('error', 'Please enter a name')
+    }
+    else if (!name && !language) {
+        req.flash('error', "Please enter name and select a language")
+    }
     res.render('index', { mesg, count })
 
 });
 
-app.get('/greeting', function (req, res) {
+app.get('/greeted', function (req, res) {
 
-//     // var name = greetingsApp.NameStoring(names)
+    var name = greetingsApp.getStoredName()
 
-//     // res.render('greetings', {name})
-// });
-})
+    res.render('greetings', { name })
+});
+
 
 app.get('/actions', function (req, res) {
 });
