@@ -101,3 +101,17 @@ input[type=radio]:checked ~ .check {
 li{
     font-size: 30px;
 }
+.names{
+    margin: 50px;
+    height: 40px;
+    width: 30%;
+    background-color: transparent;
+}
+
+.names:hover{
+    cursor: pointer;
+    background-color: coral;
+    color: black;
+    box-shadow:0 0 5px floralwhite, 0 0 10px floralwhite, 0 0 15px floralwhite;
+    font-size: 20px;
+}
