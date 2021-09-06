@@ -1,4 +1,12 @@
 <div class="container">
-<div class="row">
-    <h1>NAME'S GREETED</h1>
-    {{#each name}}<li>{{@key}}</li>{{/each}}
+    <div class="row">
+        <h1>NAMES GREETED</h1>
+        {{#each name}}
+        <a href="/counter/{{names}}">
+            <li>{{names}}</li>
+        </a>
+        {{/each}}
+    </div>
+
+    <a href="/"> <button class="back">Back</button> </a>
+</div>

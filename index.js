@@ -39,11 +39,10 @@ app.post('/greet', function (req, res) {
 
     var language = req.body.language
     var name = req.body.username
-    console.log((/^([A-Za-z])+$/g).test(name) === false);
-    console.log(name);
+    
     if (name && language) {
         if ((/^([A-Za-z])+$/g).test(name) === false) {
-            req.flash('error', 'Please enter a valid name')
+            req.flash('error', 'Please enter a valid name2')
         } else {
             var mesg = greetingsApp.nameLanguage(name, language)
             var count = greetingsApp.lengthName()
@@ -63,7 +62,6 @@ app.post('/greet', function (req, res) {
 app.get('/greeted', function (req, res) {
 
     var name = greetingsApp.getStoredName()
-
     res.render('greetings', { name })
 });
 
@@ -72,6 +70,11 @@ app.get('/actions', function (req, res) {
 });
 
 app.get('/counter/:username', function (req, res) {
+    const name = req.params.username;
+    var num = greetingsApp.userCounter(name)
+    res.render("counter", {
+        name, num
+    })
 });
 
 let PORT = process.env.PORT || 3011;

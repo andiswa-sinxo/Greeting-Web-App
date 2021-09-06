@@ -2,34 +2,30 @@ module.exports = function Greetings() {
 
     const alpha = /^([A-Za-z])+$/g;;
 
-    var storedName = {};
+    var storedName = [];
 
     function nameLanguage(names, language) {
 
         var string = names.toLowerCase();
         var name = string.charAt(0).toUpperCase() + string.slice(1);
-        // if (alpha.test(name)=== true) {
-           
-            NameStoring(name)
-            if(!name || !language){
-                return null
-            }
-             if(name == null || name == Number(name)){
-                return null
-            }
-            if (language === "French") {
-                return 'Bonjour, ' + name
-            }
-            if (language === "IsiXhosa") {
-                return 'Molo, ' + name
-            }
-            if (language === "Spanish") {
-                return 'Hola, ' + name
 
-            }
-        // }else{
-        //     return 'invalid input'
-        // }
+        NameStoring(name)
+        if (!name || !language) {
+            return null
+        }
+        if (name == null || name == Number(name)) {
+            return null
+        }
+        if (language === "French") {
+            return 'Bonjour, ' + name
+        }
+        if (language === "IsiXhosa") {
+            return 'Molo, ' + name
+        }
+        if (language === "Spanish") {
+            return 'Hola, ' + name
+
+        }
     }
 
     function emptyText(name) {
@@ -47,24 +43,49 @@ module.exports = function Greetings() {
 
         var string = names.toLowerCase();
         var name = string.charAt(0).toUpperCase() + string.slice(1);
-
-
-        if (storedName[name] === undefined) {
-            storedName[name] = 0
-        } else {
-            storedName[name]++
+        if (storedName.length === 0) {
+            storedName.push({
+                names: name,
+                counter: 1
+            });
         }
-    //     console.log(storedName)
+        else {
+            if (!storedName.some(storedName => storedName.names === name)) {
+                storedName.push({
+                    names: name,
+                    counter: 1
+                })
+
+            } else {
+                storedName.forEach(element => {
+                    if (element.names === name) {
+                        element.counter++
+                    }
+
+                });
+            }
+        }
+
     }
 
     function lengthName() {
-        return Object.keys(storedName).length
+        return storedName.length
     }
 
     function getStoredName() {
-        console.log(storedName)
+
         return storedName
     }
+    function userCounter(name) {
+        var num;
+        storedName.forEach(element => {
+            if (element.names === name) {
+                num = element.counter;
+            }
+        })
+        return num;
+    }
+
 
     return {
         nameLanguage,
@@ -72,7 +93,8 @@ module.exports = function Greetings() {
         enterNumber,
         NameStoring,
         lengthName,
-        getStoredName
+        getStoredName,
+        userCounter
 
     }
 }
