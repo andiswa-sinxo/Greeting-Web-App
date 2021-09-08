@@ -42,6 +42,7 @@ app.post('/greet', function (req, res) {
     
     if (name && language) {
         if ((/^([A-Za-z])+$/g).test(name) === false) {
+            var count = greetingsApp.lengthName()
             req.flash('error', 'Please enter a valid name')
         } else {
             var mesg = greetingsApp.nameLanguage(name, language)
