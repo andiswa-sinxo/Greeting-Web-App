@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/andiswa-sinxo/Greeting-Web-App.svg?branch=main)](https://app.travis-ci.com/andiswa-sinxo/Greeting-Web-App)
