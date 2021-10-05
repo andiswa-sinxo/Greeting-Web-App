@@ -54,8 +54,8 @@ app.get('/', async function (req, res) {
 
 
 app.post('/greet', async function (req, res) {
-
-var count = await greetingsApp.length()
+try {
+    var count = await greetingsApp.length()
     var language = req.body.language
     var name = req.body.username
     if (name && language) {
@@ -79,35 +79,49 @@ var count = await greetingsApp.length()
         req.flash('error', "Please enter name and select a language")
     }
     res.render('index', { mesg, count })
-
     
+} catch (error) {
+    console.log(error)
+    
+}
+
 });
 
 app.post('/reset', async function(req, res) {
-    await greetingsApp.resetButton()
+    try {
+        await greetingsApp.resetButton()
     req.flash('info', 'The Greeting App has successfully reset!')
     res.redirect('/')
+    } catch (error) {
+        console.log(error)
+    }
     
 });
 
 app.get('/greeted', async function(req, res) {
-
+  try {
+      
     var name = await greetingsApp.getStoredName()
     console.log(name);
     res.render('greetings', { name })
+  } catch (error) {
+      console.log(error)
+  }
+    
 });
 
 
-// app.get('/actions', async function (req, res) {
-// });
-
 app.get('/counter/:username', async function (req, res) {
-    const name = req.params.username;
+    try {
+        const name = req.params.username;
     var num = await greetingsApp.userCounter(name)
     console.log(num.counter + " num");
     res.render("counter", {
         name, num
     })
+    } catch (error) {
+        console.log(error)
+    }
 });
 
 let PORT = process.env.PORT || 3011;
