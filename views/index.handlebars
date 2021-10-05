@@ -21,6 +21,12 @@
         <div class="align">
             <div class="inputText">
 
+                {{#if messages.info}}
+                <div class="reset">
+                    <h3> {{messages.info}}</h3>
+                </div>
+                {{/if}}
+
                 {{#if messages.error}}
                 <div class="entry">
                     <h3> {{messages.error}}</h3>
@@ -40,9 +46,9 @@
         <div class="langauge">
             <input type="radio" class="french" name="language" value="French">
             <label for="french">French</label>
-            <input type="radio" name="language" value="IsiXhosa">
+            <input type="radio" class="xhosa" name="language" value="IsiXhosa">
             <label for="xhosa">IsiXhosa</label>
-            <input type="radio" name="language" value="Spanish">
+            <input type="radio" class="spanish" name="language" value="Spanish">
             <label for="spanish">Spanish</label>
         </div>
 
@@ -50,8 +56,11 @@
             <button class="btn" type="submit">Greet Me</button>
 
             </form>
+            <form action="/reset" method="post">
 
-            <button class="btn">Reset</button>
+                <button class="btn2" type="submit">Reset</button>
+            </form>
+            
         </div>
         <a href="/greeted"><button class="names" type="submit">GREETED NAMES</button></a>
         <div class="display">{{mesg}}</div>

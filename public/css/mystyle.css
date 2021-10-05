@@ -16,6 +16,16 @@ p{
 .container{
     background-color:linen;
     width: 900px;
+    height: 800px;
+   text-align: center;
+   padding-left: 100px;
+   padding-right: 100px;
+   margin-left: 400px;
+   
+}
+.container-2{
+    background-color:linen;
+    width: 900px;
    text-align: center;
    padding-left: 100px;
    padding-right: 100px;
@@ -46,7 +56,7 @@ p{
     position: sticky;
     cursor: pointer;
 }
-input[type=radio]:checked ~ .check {
+/* input[type=radio]:checked ~ .check {
     border: 5px solid coral
     ;
   }
@@ -57,7 +67,7 @@ input[type=radio]:checked ~ .check {
   
   input[type=radio]:checked ~ label{
     color: coral;
-  }
+  } */
   
 /* .align {
     display: flex;
@@ -81,8 +91,23 @@ input[type=radio]:checked ~ .check {
     height: 40px;
     width: 30%;
     background-color: transparent;
+    float: left;
 }
 .btn:hover{
+    cursor: pointer;
+    background-color: coral;
+    color: black;
+    box-shadow:0 0 5px floralwhite, 0 0 10px floralwhite, 0 0 15px floralwhite;
+    font-size: 20px;
+}
+.btn2{
+    margin: 50px;
+    height: 40px;
+    width: 30%;
+    background-color: transparent;
+    float: right;
+}
+.btn2:hover{
     cursor: pointer;
     background-color: coral;
     color: black;
@@ -93,6 +118,7 @@ input[type=radio]:checked ~ .check {
 .display{
     font-size: 40px;
     font-style: italic;
+    
 }
 .entry{
     color: red;
@@ -147,4 +173,10 @@ h2{
 
 .para{
     font-size: 30px;
+}
+.reset{
+    color: green;
+    font-size: 20px;
+    padding-top: 20px;
+    margin-left: 60px;
 }
