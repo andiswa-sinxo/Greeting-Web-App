@@ -19,7 +19,7 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@l
 const pool = new Pool({
     connectionString,
     ssl :  {
-    rejectUnathorized: false
+    rejectUnauthorized: false
     }
   });
   
@@ -48,8 +48,13 @@ app.use(bodyParser.json())
 app.use(express.static('public'));
 
 app.get('/', async function (req, res) {
-    var count = await greetingsApp.length()
+    try {
+        var count = await greetingsApp.length()
     res.render('index', { count })
+    } catch (error) {
+        console.log(error)
+    }
+    
 });
 
 
