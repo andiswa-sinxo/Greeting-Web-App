@@ -61,4 +61,26 @@ const pool = new Pool({
         assert.equal("Molo, Amanda", await greetings.nameLanguage("AMANDA", "IsiXhosa"));
         assert.equal("Hola, Likho", await greetings.nameLanguage("LIKHO", "Spanish"));
     });
+
+    it("should increase the counter to 2 if two names are greeted in two different languages",async function () {
+        let greetings = Greetings(pool);
+
+        await greetings.addNames("Thato")
+        await greetings.addNames("Andiswa")
+        let counter = await greetings.length()
+        assert.equal(2, counter);
+
+    });
+
+    it("should increase the counter to 4 if 4 names are greeted in two different languages",async function () {
+        let greetings = Greetings(pool);
+
+        await greetings.addNames("Thato")
+        await greetings.addNames("Andiswa")
+        await greetings.addNames("Lele")
+        await greetings.addNames("Anda")
+        let counter = await greetings.length()
+        assert.equal(4, counter);
+
+    });
 });
