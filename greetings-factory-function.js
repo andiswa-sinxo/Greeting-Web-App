@@ -64,45 +64,7 @@ module.exports = function Greetings(pool) {
 
     }
 
-    // function NameStoring(names) {
-
-    //     var string = names.toLowerCase();
-    //     var name = string.charAt(0).toUpperCase() + string.slice(1);
-    //     if (storedName.length === 0) {
-    //         storedName.push({
-    //             names: name,
-    //             counter: 1
-    //         });
-    //     }
-    //     else {
-    //         if (!storedName.some(storedName => storedName.names === name)) {
-    //             storedName.push({
-    //                 names: name,
-    //                 counter: 1
-    //             })
-
-    //         } else {
-    //             storedName.forEach(element => {
-    //                 if (element.names === name) {
-    //                     element.counter++
-    //                 }
-
-    //             });
-    //         }
-    //     }
-
-    // }
-
-    // async function lengthName() {
-    //     try { 
-    //         return storedName.length
-            
-    //     } catch (error) {
-    //         console.log(error)
-            
-    //     }
-       
-    // }
+    
     async function length(){
         let storage = await pool.query('select distinct names from users');
         return storage.rowCount
@@ -129,7 +91,6 @@ module.exports = function Greetings(pool) {
             console.log(userCount.rows[0]);
             return userCount.rows;
           
-            // return num;
             
         } catch (error) {
             console.log(error)
@@ -143,8 +104,6 @@ module.exports = function Greetings(pool) {
         nameLanguage,
         emptyText,
         enterNumber,
-        // NameStoring,
-        // lengthName,
         getStoredName,
         userCounter,
         addNames,
