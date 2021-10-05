@@ -18,7 +18,9 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@l
 
 const pool = new Pool({
     connectionString,
-    ssl : useSSL
+    ssl :  {
+    rejectUnathorized: false
+    }
   });
   
 const app = express();
@@ -52,6 +54,7 @@ app.get('/', async function (req, res) {
 
 
 app.post('/greet', async function (req, res) {
+
 var count = await greetingsApp.length()
     var language = req.body.language
     var name = req.body.username
