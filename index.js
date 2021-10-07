@@ -72,6 +72,7 @@ try {
             await greetingsApp.addNames(name)
             var count = await greetingsApp.length()
             console.log(greetingsApp.length())
+            // console.log('llllll'+ await JSON.stringify(greetingsApp.getStoredName()))
             await greetingsApp.getStoredName();
         }
     }
@@ -82,6 +83,9 @@ try {
 
     else if (!name && !language) {
         req.flash('error', "Please enter name and select a language")
+    }
+    else if (name && !language){
+        req.flash('error', 'Please select a language')
     }
     res.render('index', { mesg, count })
     

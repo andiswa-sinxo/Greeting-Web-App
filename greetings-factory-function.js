@@ -47,17 +47,7 @@ module.exports = function Greetings(pool) {
             
         }
     }
-
-     function emptyText(name) {
-        if (name === "") {
-            return "Please enter a name.";
-        }
-    }
-
-     function enterNumber(name) {
-
-        return "Please enter a valid name.";
-    }
+ 
 
     async function resetButton(){
         await pool.query('delete from users');
@@ -75,7 +65,7 @@ module.exports = function Greetings(pool) {
     async function getStoredName() {
         try { 
             var allNames =await pool.query('select names from users')
-            console.log(allNames);
+            console.log(allNames.rows);
             return allNames.rows;
             
         } catch (error) {
@@ -89,7 +79,7 @@ module.exports = function Greetings(pool) {
         try {
             var userCount = await pool.query ('select counter from users where names = $1', [name]);
             console.log(userCount.rows[0]);
-            return userCount.rows;
+            return userCount.rows[0];
           
             
         } catch (error) {
@@ -99,11 +89,8 @@ module.exports = function Greetings(pool) {
         
     }
 
-
     return {
         nameLanguage,
-        emptyText,
-        enterNumber,
         getStoredName,
         userCounter,
         addNames,
