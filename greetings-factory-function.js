@@ -78,7 +78,7 @@ module.exports = function Greetings(pool) {
     async function userCounter(name) {
         try {
             var userCount = await pool.query ('select counter from users where names = $1', [name]);
-            console.log(userCount.rows[0]);
+            console.log(userCount.rows[0] + " count" );
             return userCount.rows[0];
           
             
