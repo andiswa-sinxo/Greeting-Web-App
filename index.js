@@ -38,7 +38,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(flash());
+app.use(flash())
 app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
@@ -65,9 +65,10 @@ try {
     var name = req.body.username
     if (name && language) {
         if ((/^([A-Za-z])+$/g).test(name) === false) {
-            
             req.flash('error', 'Please enter a valid name')
-        } else  {
+            
+        }
+         else  {
             var mesg = await greetingsApp.nameLanguage(name, language)
             await greetingsApp.addNames(name)
             var count = await greetingsApp.length()
@@ -133,7 +134,7 @@ app.get('/counter/:username', async function (req, res) {
     }
 });
 
-let PORT = process.env.PORT || 3011;
+let PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function () {
     console.log('App starting on port', PORT);
