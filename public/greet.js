@@ -1,13 +1,9 @@
-describe.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     let errorMessageElem = document.querySelector('.entry');
-    let infoMessageElem = document.querySelector('.reset');
-
-    if (errorMessageElem.innerHTML !== '' || infoMessageElem.innerHTML !== ''){
-
-    
-        setTimeout(function () {
-            errorMessageElem.innerHTML = '';
-            infoMessageElem.innerHTML = '';
+    if (errorMessageElem.innerHTML !== '') {
+        setTimeout(() => {
+            errorMessageElem.innerHTML = '';   
+            
         }, 3000);
     }
-})
+});
